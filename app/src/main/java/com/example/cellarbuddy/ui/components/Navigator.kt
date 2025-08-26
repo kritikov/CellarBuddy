@@ -17,7 +17,12 @@ fun Navigator() {
         startDestination = Screen.Main
     ){
         composable<Screen.Main> {
-            MainScreen()
+            MainScreen(
+                onNavigateToDrinks = {},
+                onNavigateToCategories = {},
+                onNavigateToTypes = {},
+                onNavigateToScan = {},
+            )
         }
     }
 }
