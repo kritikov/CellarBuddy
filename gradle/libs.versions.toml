@@ -18,7 +18,8 @@ navigation = "2.9.3"
 roomVersion = "2.7.2"
 camerax = "1.4.2"
 textRecognition = "16.0.1"
-ksp = "2.2.0-2.0.2" # ίδια βασική Kotlin version + το αντίστοιχο KSP
+ksp = "2.2.0-2.0.2"
+uiGraphics = "1.9.0" # ίδια βασική Kotlin version + το αντίστοιχο KSP
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +53,7 @@ camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "
 camera-extensions = { group = "androidx.camera", name = "camera-extensions", version.ref = "camerax" }
 androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "camerax" }
 text-recognition = { module = "com.google.mlkit:text-recognition", version.ref = "textRecognition" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

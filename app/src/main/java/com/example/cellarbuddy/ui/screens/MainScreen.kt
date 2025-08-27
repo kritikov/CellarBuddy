@@ -4,9 +4,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,12 +25,18 @@ fun MainScreen(
     onNavigateToScan: () -> Unit,
 ) {
 
+    val snackbarHostState = remember { SnackbarHostState() }
+
     // doesn't do anything actually
     LaunchedEffect(Unit) {
         viewModel.loadOnce()
+
+        // test the snackbar
+        snackbarHostState.showSnackbar("testing snacks!")
     }
 
     MainContents(
+        snackbarHostState = snackbarHostState,
         onNavigateToDrinks = onNavigateToDrinks,
         onNavigateToCategories = onNavigateToCategories,
         onNavigateToTypes = onNavigateToTypes,
@@ -38,12 +46,16 @@ fun MainScreen(
 
 @Composable
 fun MainContents(
+    snackbarHostState: SnackbarHostState? = null,
     onNavigateToDrinks: () -> Unit,
     onNavigateToCategories: () -> Unit,
     onNavigateToTypes: () -> Unit,
     onNavigateToScan: () -> Unit,
 ) {
     BaseScreen(
+        title = "cellar buddy",
+        snackbarHostState = snackbarHostState,
+        onBack = {},
         content = {
             Column(
                 modifier = Modifier.fillMaxSize(),
