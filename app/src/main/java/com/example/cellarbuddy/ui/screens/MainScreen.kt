@@ -3,6 +3,7 @@ package com.example.cellarbuddy.ui.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -12,8 +13,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.cellarbuddy.ui.components.BaseScreen
+import com.example.cellarbuddy.ui.components.ButtonLight
 import com.example.cellarbuddy.viewModels.MainViewModel
 
 @Composable
@@ -59,32 +62,35 @@ fun MainContents(
         content = {
             Column(
                 modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
-                Button(
-                    onClick = onNavigateToDrinks
-                ){
-                    Text(text = "Drinks")
-                }
 
-                Button(
-                    onClick = onNavigateToCategories
-                ){
-                    Text(text = "Categories")
-                }
+                val buttonModifier = Modifier.width(300.dp)
 
-                Button(
-                    onClick = onNavigateToTypes
-                ){
-                    Text(text = "Types")
-                }
+                ButtonLight(
+                    onClick = onNavigateToDrinks,
+                    text = "Drinks",
+                    modifier = buttonModifier
+                )
 
-                Button(
-                    onClick = onNavigateToScan
-                ){
-                    Text(text = "Scan")
-                }
+                ButtonLight(
+                    onClick = onNavigateToCategories,
+                    text = "Categories",
+                    modifier = buttonModifier
+                )
+
+                ButtonLight(
+                    onClick = onNavigateToTypes,
+                    text = "Types",
+                    modifier = buttonModifier
+                )
+
+                ButtonLight(
+                    onClick = onNavigateToScan,
+                    text = "Scan",
+                    modifier = buttonModifier
+                )
 
             }
         }

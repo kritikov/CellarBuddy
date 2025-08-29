@@ -35,12 +35,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cellarbuddy.R
+import com.example.cellarbuddy.ui.theme.Black
+import com.example.cellarbuddy.ui.theme.VanillaCream
+import com.example.cellarbuddy.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BaseScreen(
     title: String = "",
+    showBackButton: Boolean = false,
     bottomBar: @Composable (()->Unit)? = null,
     snackbarHostState: SnackbarHostState? = null,
     onBack: () -> Unit,
@@ -62,21 +66,23 @@ fun BaseScreen(
             topBar = {
                 CenterAlignedTopAppBar(
                     title = {
-                        Text(text = title, fontSize = 30.sp, color = Color.White)
+                        Text(text = title, fontSize = 30.sp, color = White)
                     },
                     navigationIcon = {
-                        IconButton(
-                            onClick = onBack,
-                            colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = Color.Black,
-                                contentColor = Color.White
-                            )
-                        ){
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "back",
-                                modifier = Modifier.padding(4.dp)
-                            )
+                        if (showBackButton){
+                            IconButton(
+                                onClick = onBack,
+                                colors = IconButtonDefaults.iconButtonColors(
+                                    containerColor = VanillaCream,
+                                    contentColor = Black
+                                )
+                            ){
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = "back",
+                                    modifier = Modifier.padding(4.dp)
+                                )
+                            }
                         }
                     },
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
