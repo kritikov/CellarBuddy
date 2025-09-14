@@ -1,1 +1,2 @@
 - Views as whole screens will be called... Screens
+- All colors will be defined as constants in the theme package
