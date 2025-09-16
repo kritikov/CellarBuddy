@@ -1,2 +1,9 @@
 - Views as whole screens will be called... Screens
 - All colors will be defined as constants in the theme package
+
+Data
+- For header entities, the table names will be the plural form of the entity,
+    while the entity name itself will be in singular
+- The names of the join tables will be in singular, with the suffix CrossRefs
+- The data classes that contain a table’s header and all its details will use the
+    entity name in singular, with the suffix WithRelations
